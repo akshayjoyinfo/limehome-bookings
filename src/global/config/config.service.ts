@@ -38,9 +38,6 @@ export class ConfigurationService extends ConfigService implements IConfigServic
             entities: ['dist/**/*.entity.js'],
             migrationsTableName: 'migrations',
             migrations: ['dist/migrations/*.js'],
-            cli: {
-                migrationsDir: 'src/migrations',
-            },
             synchronize: true,
             logging: ['error'], //['query', 'error'],
             namingStrategy: new SnakeNamingStrategy(),
