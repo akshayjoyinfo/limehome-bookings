@@ -1,4 +1,10 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { DateTime } from 'luxon';
 
 import { ApiException, ErrorModel } from '../exception';
@@ -6,8 +12,6 @@ import * as errorStatus from '../static/http-status.json';
 
 @Catch()
 export class AppExceptionFilter implements ExceptionFilter {
-  constructor() {}
-
   catch(exception: ApiException, host: ArgumentsHost): void {
     const context = host.switchToHttp();
     const response = context.getResponse();
@@ -27,7 +31,9 @@ export class AppExceptionFilter implements ExceptionFilter {
         code: status,
         traceid: exception.traceid,
         message: errorStatus[String(status)] || exception.message,
-        timestamp: DateTime.fromJSDate(new Date()).setZone(process.env.TZ).toFormat('dd/MM/yyyy HH:mm:ss'),
+        timestamp: DateTime.fromJSDate(new Date())
+          .setZone(process.env.TZ)
+          .toFormat('dd/MM/yyyy HH:mm:ss'),
         path: request.url,
       },
     } as ErrorModel);

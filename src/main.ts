@@ -6,12 +6,17 @@ import { AppModule } from './app.module';
 import { IConfigService } from './global/config/config.adapter';
 import { DEFAULT_TAG, SWAGGER_API_ROOT } from './utils/docs/constants';
 import { AppExceptionFilter } from './utils/filters/app-exception.filter';
+import { ExceptionInterceptor } from './utils/interceptors/exceptions/http-exception.interceptor';
+import { HttpLoggerInterceptor } from './utils/interceptors/loggers/http-logger.interceptor';
+import { Logger } from 'nestjs-pino';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule,{
+  const app = await NestFactory.create(AppModule, {
     bufferLogs: true,
     cors: true,
   });
+
+  app.useLogger(app.get(Logger));
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -21,15 +26,14 @@ async function bootstrap() {
 
   app.useGlobalFilters(new AppExceptionFilter());
 
-  // app.useGlobalInterceptors(
-  //   new ExceptionInterceptor(),
-  //   new HttpLoggerInterceptor(loggerService),
-  //   new TracingInterceptor({ app: name, version }, loggerService),
-  // );
+  app.useGlobalInterceptors(
+    new ExceptionInterceptor(),
+    new HttpLoggerInterceptor(),
+  );
 
-  const configService= app.get(IConfigService);
+  const configService = app.get(IConfigService);
   const PORT = configService.get('API_PORT');
-  const ENV= configService.get('NODE_ENV');
+  const ENV = configService.get('NODE_ENV');
 
   app.setGlobalPrefix('api', {
     exclude: [{ path: 'health', method: RequestMethod.GET }],
@@ -45,7 +49,11 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup(SWAGGER_API_ROOT, app, document);
 
-  console.log(`🟢 LimeHome Bookings API listening at ${bold(PORT)} on ${bold(ENV?.toUpperCase())} 🟢\n`);
+  console.log(
+    `🟢 LimeHome Bookings API listening at ${bold(PORT)} on ${bold(
+      ENV?.toUpperCase(),
+    )} 🟢\n`,
+  );
 
   await app.listen(process.env.PORT || PORT);
 

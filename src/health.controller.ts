@@ -1,6 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
-import { HealthCheckService, HttpHealthIndicator, HealthCheck, TypeOrmHealthIndicator } from '@nestjs/terminus';
+import {
+  HealthCheckService,
+  HttpHealthIndicator,
+  HealthCheck,
+  TypeOrmHealthIndicator,
+} from '@nestjs/terminus';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { IConfigService } from './global/config/config.adapter';
@@ -24,9 +29,10 @@ export class HealthController {
     console.log(this.configService.get('NODE_ENV'));
     return this.health.check([
       () => this.http.pingCheck('HERE:API', 'https://developer.here.com'),
-      () => this.db.pingCheck('LimeHome:DB',{
-         connection: this.bookingsConnetion
-      }),
+      () =>
+        this.db.pingCheck('LimeHome:DB', {
+          connection: this.bookingsConnetion,
+        }),
     ]);
   }
 }

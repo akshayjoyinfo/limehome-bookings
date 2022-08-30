@@ -9,7 +9,8 @@ import { ConfigurationService } from './config.service';
 @Module({
   imports: [],
   controllers: [],
-  providers: [{
+  providers: [
+    {
       provide: IConfigService,
       useClass: ConfigurationService,
     },

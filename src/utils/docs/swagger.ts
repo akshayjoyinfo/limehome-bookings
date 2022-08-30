@@ -23,7 +23,12 @@ type SwaggerJSON = {
 };
 
 export const Swagger = {
-  defaultResponseError({ status, route, message, description }: SwaggerError): ApiResponseOptions {
+  defaultResponseError({
+    status,
+    route,
+    message,
+    description,
+  }: SwaggerError): ApiResponseOptions {
     return {
       schema: {
         example: {
@@ -41,7 +46,11 @@ export const Swagger = {
     };
   },
 
-  defaultResponseText({ status, text, description }: SwaggerText): ApiResponseOptions {
+  defaultResponseText({
+    status,
+    text,
+    description,
+  }: SwaggerText): ApiResponseOptions {
     return {
       content: {
         'text/plain': {
@@ -55,7 +64,11 @@ export const Swagger = {
     };
   },
 
-  defaultResponseJSON({ status, json, description }: SwaggerJSON): ApiResponseOptions {
+  defaultResponseJSON({
+    status,
+    json,
+    description,
+  }: SwaggerJSON): ApiResponseOptions {
     return {
       content: {
         'application/json': {
