@@ -25,9 +25,6 @@ export class ConfigurationService
       process.env[envName] = process.env[envName].replace(/\\n/g, '\n');
     }
   }
-  getNodeEnv(): string {
-    return this.get('NODE_ENV') || 'local';
-  }
 
   get(key: string): string {
     return process.env[key];

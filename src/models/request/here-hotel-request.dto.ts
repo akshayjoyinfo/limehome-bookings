@@ -11,8 +11,8 @@ export class HereHotelSyncRequest {
   @Max(180)
   longitude: number;
 
-  @IsInt()
+  @IsNumber()
   @Min(0)
   @Max(1000)
-  distance = 500;
+  distance: number = 500;
 }

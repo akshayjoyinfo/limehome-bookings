@@ -1,5 +1,5 @@
 import { HotelHereItemModel } from './hotel-here-item.model';
 
-export interface HotelHereApiResponseModel {
+export class HotelHereApiResponseModel {
   items: HotelHereItemModel[];
 }
