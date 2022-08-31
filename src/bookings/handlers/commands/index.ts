@@ -1,6 +1,3 @@
-import {IngestHotelsFromHereCommandHandler} from './ingest-hotels-from-here-command.handler';
+import { IngestHotelsFromHereCommandHandler } from './ingest-hotels-from-here-command.handler';
 
-
-export const commandHandlers = [
-    IngestHotelsFromHereCommandHandler
-]
+export const commandHandlers = [IngestHotelsFromHereCommandHandler];

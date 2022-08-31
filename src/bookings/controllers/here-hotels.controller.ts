@@ -2,7 +2,14 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Controller, Get, Inject, ParseFloatPipe, ParseIntPipe, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Inject,
+  ParseFloatPipe,
+  ParseIntPipe,
+  Query,
+} from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { ApiOperation, ApiQuery, ApiResponse } from '@nestjs/swagger';
 import { HotelDataProviderSource } from '../../enums/hotel-data-provider-source.enum';
@@ -17,9 +24,7 @@ import { IngestHotelsFromHereCommand } from '../commands/ingest-hotels-from-here
 
 @Controller('here-hotels')
 export class HereHotelsController {
-  constructor(
-    private readonly commandBus: CommandBus,
-  ) {}
+  constructor(private readonly commandBus: CommandBus) {}
 
   @Get()
   @ApiOperation(ApiContracts.LIMEHOME_BOOKINGS_API_Here_Hotels)
@@ -40,13 +45,17 @@ export class HereHotelsController {
     type: Number,
     description: 'Circular distance within meters',
     required: false,
-    
   })
-  async retrieveHotelsWithHere(@Query() query: HereHotelSyncRequest
-  ) {
-   
-    return this.commandBus
-    .execute<IngestHotelsFromHereCommand, HotelHereApiResponseModel>
-    (new IngestHotelsFromHereCommand(query.latitude, query.longitude,query.distance))
+  async retrieveHotelsWithHere(@Query() query: HereHotelSyncRequest) {
+    return this.commandBus.execute<
+      IngestHotelsFromHereCommand,
+      HotelHereApiResponseModel
+    >(
+      new IngestHotelsFromHereCommand(
+        query.latitude,
+        query.longitude,
+        query.distance,
+      ),
+    );
   }
 }

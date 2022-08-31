@@ -38,7 +38,7 @@ import { DB } from '../enums/database-connection.enum';
       useFactory: (here) => [here],
       inject: [HereHotelDataProviderService],
     },
-    ...commandHandlers
+    ...commandHandlers,
   ],
 })
 export class BookingsModule {}

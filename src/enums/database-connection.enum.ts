@@ -1,3 +1,3 @@
-export enum DB{
-    BOOKINGS = 'bookings'
+export enum DB {
+  BOOKINGS = 'bookings',
 }

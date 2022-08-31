@@ -1,6 +1,3 @@
-import {HotelEntity} from './hotel.entity';
+import { HotelEntity } from './hotel.entity';
 
-
-export const allEntities = [
-    HotelEntity
-]
+export const allEntities = [HotelEntity];

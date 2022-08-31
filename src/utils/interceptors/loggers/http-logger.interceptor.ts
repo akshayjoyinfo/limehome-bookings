@@ -3,7 +3,6 @@ import {
   ExecutionContext,
   Injectable,
   Logger,
-  LoggerService,
   NestInterceptor,
 } from '@nestjs/common';
 
@@ -23,7 +22,6 @@ export class HttpLoggerInterceptor implements NestInterceptor {
     }`;
 
     const request = executionContext.switchToHttp().getRequest();
-    const response = executionContext.switchToHttp().getResponse();
 
     request['context'] = context;
 
@@ -32,15 +30,11 @@ export class HttpLoggerInterceptor implements NestInterceptor {
       request.id = request.headers.traceid;
     }
 
-    
     this.logger.log(
       { url: request.url, method: request.method },
       `${request.method} ${request.url}`,
     );
-    this.logger.log(
-      { url: request.url, method: request.method },
-      `${request.method} ${request.url}`,
-    );
+
     return next.handle();
   }
 }

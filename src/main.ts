@@ -21,7 +21,8 @@ async function bootstrap() {
 
   app.useGlobalPipes(
     new LimeHomeValidationPipe({
-      transform: true, transformOptions: {enableImplicitConversion: true} 
+      transform: true,
+      transformOptions: { enableImplicitConversion: true },
     }),
   );
 
