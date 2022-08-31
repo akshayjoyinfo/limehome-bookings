@@ -45,18 +45,19 @@ export class IngestHotelsFromHereCommandHandler
     )) as unknown as HotelHereApiResponseModel;
 
     this.ingestEntities(res.items);
+    this.logger.log(`Sync completed`)
     return res;
   }
 
   async ingestEntities(hotels: HotelHereItemModel[]) {
     var hotelEnities: HotelEntity[] = [];
+    this.logger.log(`Ingesting ${hotels.length} Hotels`)
 
     hotels.forEach((element) => {
       const pointObject: Point = {
         type: 'Point',
         coordinates: [element?.position?.lng, element?.position?.lat],
       };
-      console.log(element.id);
       hotelEnities.push({
         name: element.title,
         sourceSystem: 'HERE',
@@ -67,7 +68,9 @@ export class IngestHotelsFromHereCommandHandler
         geoLocation: pointObject,
       } as HotelEntity);
 
-      this.repository.upsert(hotelEnities, ['sourceSystemId', 'sourceSystem']);
     });
+
+      this.repository.upsert(hotelEnities, ['sourceSystemId', 'sourceSystem']);
+      this.logger.log(`Hotels ${hotelEnities.length} were upserted`)
   }
 }
