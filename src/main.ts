@@ -9,6 +9,7 @@ import { AppExceptionFilter } from './utils/filters/app-exception.filter';
 import { ExceptionInterceptor } from './utils/interceptors/exceptions/http-exception.interceptor';
 import { HttpLoggerInterceptor } from './utils/interceptors/loggers/http-logger.interceptor';
 import { Logger } from 'nestjs-pino';
+import { LimeHomeValidationPipe } from './global/pipes/lime-home-validation.pipe';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -19,12 +20,10 @@ async function bootstrap() {
   app.useLogger(app.get(Logger));
 
   app.useGlobalPipes(
-    new ValidationPipe({
-      errorHttpStatusCode: HttpStatus.PRECONDITION_FAILED,
+    new LimeHomeValidationPipe({
+      transform: true, transformOptions: {enableImplicitConversion: true} 
     }),
   );
-
-  app.useGlobalFilters(new AppExceptionFilter());
 
   app.useGlobalInterceptors(
     new ExceptionInterceptor(),

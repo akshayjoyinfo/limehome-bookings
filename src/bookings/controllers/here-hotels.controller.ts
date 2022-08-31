@@ -2,11 +2,12 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Controller, Get, Inject, Query } from '@nestjs/common';
+import { Controller, Get, Inject, ParseFloatPipe, ParseIntPipe, Query } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { ApiOperation, ApiQuery, ApiResponse } from '@nestjs/swagger';
 import { HotelDataProviderSource } from '../../enums/hotel-data-provider-source.enum';
 import { HotelHereApiResponseModel } from '../../models/here/hotel-here-api-response-model';
+import { HereHotelSyncRequest } from '../../models/request/here-hotel-request.dto';
 import { ApiContracts } from '../../utils/docs/api-contracts';
 import {
   HOTEL_DATA_PROVIDER_SERVICE,
@@ -39,15 +40,13 @@ export class HereHotelsController {
     type: Number,
     description: 'Circular distance within meters',
     required: false,
+    
   })
-  async retrieveHotelsWithHere(
-    @Query('latitude') lat,
-    @Query('longitude') long,
-    @Query('distance') distance = 500,
+  async retrieveHotelsWithHere(@Query() query: HereHotelSyncRequest
   ) {
    
     return this.commandBus
     .execute<IngestHotelsFromHereCommand, HotelHereApiResponseModel>
-    (new IngestHotelsFromHereCommand(lat, long,distance))
+    (new IngestHotelsFromHereCommand(query.latitude, query.longitude,query.distance))
   }
 }

@@ -14,9 +14,19 @@ import { HereHotelsController } from './controllers/here-hotels.controller';
 import { HereHotelDataProviderService } from './services/here-hotel-data-provider.service';
 import { commandHandlers } from './handlers/commands';
 import { HereHotelsRecievedEventHandler } from './handlers/events/here-hotels-recieved-event.handler';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { allEntities } from './entities';
+import { HotelEntity } from './entities/hotel.entity';
+import { DB } from '../enums/database-connection.enum';
 
 @Module({
-  imports: [HttpModule, ConfigModule, CqrsModule, EventEmitterModule.forRoot()],
+  imports: [
+    HttpModule,
+    ConfigModule,
+    CqrsModule,
+    EventEmitterModule.forRoot(),
+    TypeOrmModule.forFeature([HotelEntity]),
+  ],
   controllers: [HereHotelsController],
   providers: [
     HereHotelDataProviderService,

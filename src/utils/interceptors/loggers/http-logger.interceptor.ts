@@ -32,6 +32,7 @@ export class HttpLoggerInterceptor implements NestInterceptor {
       request.id = request.headers.traceid;
     }
 
+    
     this.logger.log(
       { url: request.url, method: request.method },
       `${request.method} ${request.url}`,

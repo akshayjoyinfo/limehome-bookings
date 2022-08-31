@@ -8,6 +8,7 @@ import { ConfigService } from '@nestjs/config';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import { IConfigService } from './config.adapter';
 import { SnakeNamingStrategy } from '../database/snake-naming.startegy';
+import { DB } from '../../enums/database-connection.enum';
 
 @Injectable()
 export class ConfigurationService
@@ -34,7 +35,6 @@ export class ConfigurationService
 
   getDatabaseConfig(): PostgresConnectionOptions {
     return {
-      name: 'bookings',
       type: 'postgres',
       url: this.get('DB_URL'),
       entities: ['dist/**/*.entity.js'],

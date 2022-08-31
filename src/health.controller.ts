@@ -8,6 +8,7 @@ import {
 } from '@nestjs/terminus';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
+import { DB } from './enums/database-connection.enum';
 import { IConfigService } from './global/config/config.adapter';
 import { ApiContracts } from './utils/docs/api-contracts';
 
@@ -17,7 +18,7 @@ export class HealthController {
     private health: HealthCheckService,
     private http: HttpHealthIndicator,
     private configService: IConfigService,
-    @InjectConnection('bookings')
+    @InjectConnection()
     private bookingsConnetion: Connection,
     private db: TypeOrmHealthIndicator,
   ) {}

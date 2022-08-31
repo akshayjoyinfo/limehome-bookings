@@ -10,7 +10,7 @@ import { DateTime } from 'luxon';
 import { ApiException, ErrorModel } from '../exception';
 import * as errorStatus from '../static/http-status.json';
 
-@Catch()
+@Catch(HttpException)
 export class AppExceptionFilter implements ExceptionFilter {
   catch(exception: ApiException, host: ArgumentsHost): void {
     const context = host.switchToHttp();

@@ -8,6 +8,7 @@ import { IConfigService } from './global/config/config.adapter';
 import { ConfigurationService } from './global/config/config.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LoggerModule } from 'nestjs-pino';
+import { DB } from './enums/database-connection.enum';
 
 @Module({
   imports: [
@@ -21,17 +22,16 @@ import { LoggerModule } from 'nestjs-pino';
         },
       },
     }),
-    BookingsModule,
     ConfigModule,
     HttpModule,
     TypeOrmModule.forRootAsync({
-      name: 'bookings',
       imports: [ConfigModule],
       useFactory: (configService: IConfigService) =>
         configService.getDatabaseConfig(),
       inject: [IConfigService],
     }),
     TerminusModule,
+    BookingsModule,
   ],
   controllers: [HealthController],
   providers: [
