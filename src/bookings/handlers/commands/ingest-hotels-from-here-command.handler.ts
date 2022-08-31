@@ -1,6 +1,5 @@
 import { Inject, Logger } from '@nestjs/common';
-import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
-import { EventEmitter2 } from '@nestjs/event-emitter';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Point } from 'geojson';
 import { lastValueFrom } from 'rxjs';
@@ -14,8 +13,6 @@ import {
 } from '../../adapters/hotel-data-provider.adapter';
 import { IngestHotelsFromHereCommand } from '../../commands/ingest-hotels-from-here.command';
 import { HotelEntity } from '../../entities/hotel.entity';
-import { HereHotelsRecievedEvent } from '../../events/here-hotels-recieved.event';
-import { HereHotelsRecievedEventHandler } from '../events/here-hotels-recieved-event.handler';
 
 @CommandHandler(IngestHotelsFromHereCommand)
 export class IngestHotelsFromHereCommandHandler
@@ -47,7 +44,7 @@ export class IngestHotelsFromHereCommandHandler
       ),
     )) as unknown as HotelHereApiResponseModel;
 
-    await this.ingestEntities(res.items);
+    this.ingestEntities(res.items);
     return res;
   }
 
