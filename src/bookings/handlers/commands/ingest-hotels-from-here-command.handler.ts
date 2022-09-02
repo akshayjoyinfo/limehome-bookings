@@ -66,6 +66,8 @@ export class IngestHotelsFromHereCommandHandler
         createdAtUtc: new Date(),
         address: element.address,
         geoLocation: pointObject,
+        totalRooms: 10 // why accoridng to problem statement rooms is 10 ideally there will be 
+        // hotel_rooms table will be allocated to present this with room type for the context of task
       } as HotelEntity);
     });
 

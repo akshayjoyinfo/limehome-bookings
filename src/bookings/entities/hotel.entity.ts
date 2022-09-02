@@ -1,8 +1,9 @@
 import { Point } from 'geojson';
 import { type } from 'os';
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from '../../global/database/base.entity';
 import { Address } from '../dto/hotel/address.dto';
+import { HotelBookingEntity } from './hotel_booking.entity';
 
 @Entity('hotels')
 @Index('idx_unique_hotel', ['sourceSystem', 'sourceSystemId'], { unique: true })
@@ -42,4 +43,13 @@ export class HotelEntity extends BaseEntity {
     nullable: true,
   })
   geoLocation: Point;
+
+  @Column({
+    nullable: true,
+  })
+  totalRooms: number;
+
+
+  @OneToMany((_type) => HotelBookingEntity, (booking) => booking.hotel)
+  bookings: HotelBookingEntity[];
 }

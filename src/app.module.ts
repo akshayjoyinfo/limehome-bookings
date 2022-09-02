@@ -1,3 +1,4 @@
+import { HotelsController } from './bookings/controllers/hotels.controller';
 import { BookingsModule } from './bookings/bookings.module';
 import { ConfigModule } from './global/config/config.module';
 import { HttpModule } from '@nestjs/axios';

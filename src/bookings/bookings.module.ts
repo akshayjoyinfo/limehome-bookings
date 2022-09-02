@@ -12,11 +12,14 @@ import { ConfigurationService } from '../global/config/config.service';
 import { HOTEL_DATA_PROVIDER_SERVICE } from './adapters/hotel-data-provider.adapter';
 import { HereHotelsController } from './controllers/here-hotels.controller';
 import { HereHotelDataProviderService } from './services/here-hotel-data-provider.service';
-import { commandHandlers } from './handlers/commands';
+import { commandHandlers, queryHandlers } from './handlers';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { allEntities } from './entities';
 import { HotelEntity } from './entities/hotel.entity';
 import { DB } from '../enums/database-connection.enum';
+import { HotelsController } from './controllers/hotels.controller';
+import { validators } from './validators';
+import { HotelBookingEntity } from './entities/hotel_booking.entity';
 
 @Module({
   imports: [
@@ -24,9 +27,9 @@ import { DB } from '../enums/database-connection.enum';
     ConfigModule,
     CqrsModule,
     EventEmitterModule.forRoot(),
-    TypeOrmModule.forFeature([HotelEntity]),
+    TypeOrmModule.forFeature([HotelEntity, HotelBookingEntity]),
   ],
-  controllers: [HereHotelsController],
+  controllers: [HereHotelsController, HotelsController],
   providers: [
     HereHotelDataProviderService,
     {
@@ -38,7 +41,9 @@ import { DB } from '../enums/database-connection.enum';
       useFactory: (here) => [here],
       inject: [HereHotelDataProviderService],
     },
+    ...validators,
     ...commandHandlers,
+    ...queryHandlers,
   ],
 })
 export class BookingsModule {}

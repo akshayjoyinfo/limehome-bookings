@@ -10,6 +10,7 @@ import { ExceptionInterceptor } from './utils/interceptors/exceptions/http-excep
 import { HttpLoggerInterceptor } from './utils/interceptors/loggers/http-logger.interceptor';
 import { Logger } from 'nestjs-pino';
 import { LimeHomeValidationPipe } from './global/pipes/lime-home-validation.pipe';
+import { useContainer } from 'class-validator';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -31,6 +32,9 @@ async function bootstrap() {
     new HttpLoggerInterceptor(),
   );
 
+
+  useContainer(app.select(AppModule), { fallbackOnErrors: true });
+  
   const configService = app.get(IConfigService);
   const PORT = configService.get('API_PORT');
   const ENV = configService.get('NODE_ENV');

@@ -51,9 +51,11 @@
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.5.0",
     "ts-node": "^10.0.0",
-    "typeorm": "^0.3.9"
+    "typeorm": "^0.3.9",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.19",
     "@nestjs/cli": "^8.2.8",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.4.7",
@@ -87,7 +89,8 @@
       ".module.ts",
       "./src/utils/",
       "./src/main.ts",
-      ".command.ts"
+      ".command.ts",
+      "index.ts"
     ],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
