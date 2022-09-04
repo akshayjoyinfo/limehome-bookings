@@ -25,4 +25,5 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
-.coverage
+coverage
+coverage-e2e

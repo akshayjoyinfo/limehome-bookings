@@ -6,29 +6,29 @@ import {
   ValidationArguments,
 } from 'class-validator';
 import { Repository } from 'typeorm';
+import { IConfigService } from '../../../global/config/config.adapter';
 import { CreateHotelBookingRequest } from '../../../models/request/hotel-booking-request.dto';
 import { HotelEntity } from '../../entities/hotel.entity';
-import { HotelBookingEntity } from '../../entities/hotel_booking.entity';
+import { BookingAllocationEntity } from '../../entities/booking-allocation.entity';
 
 @ValidatorConstraint({ name: 'BookingAvailable', async: true })
 @Injectable()
 export class BookingAvailableValidator implements ValidatorConstraintInterface {
   constructor(
-    @InjectRepository(HotelBookingEntity)
-    private readonly repository: Repository<HotelBookingEntity>,
+    @InjectRepository(BookingAllocationEntity)
+    private readonly repository: Repository<BookingAllocationEntity>,
+    private readonly configService: IConfigService
   ) {}
 
   async validate(value: CreateHotelBookingRequest) {
     try {
-
-        
-
+      var limitBookingPerDay = +this.configService.get('BOOKINGS_PER_DAY')
       var records = await this.repository.query(`
-        select booking_date::date,count(1) from hotel_bookings
+        select booking_date::date,count(1) from booking_allocations
         where hotel_id=$3 AND booking_date::date >=$1 and booking_date::date <$2
-        group by booking_date::date
-        having count(1) > 10
-      `,[checkIn, checkOut, value.hotelId]);
+        group by hotel_id,booking_date::date
+        having count(1) >= $4
+      `,[value.checkInDate, value.checkOutDate, value.hotelId,limitBookingPerDay]);
 
       if(records.length >0)
         return false;

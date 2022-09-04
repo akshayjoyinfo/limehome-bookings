@@ -3,7 +3,8 @@ import { type } from 'os';
 import { Column, Entity, Index, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from '../../global/database/base.entity';
 import { Address } from '../dto/hotel/address.dto';
-import { HotelBookingEntity } from './hotel_booking.entity';
+import { BookingAllocationEntity } from './booking-allocation.entity';
+import { BookingEntity } from './booking.entity';
 
 @Entity('hotels')
 @Index('idx_unique_hotel', ['sourceSystem', 'sourceSystemId'], { unique: true })
@@ -50,6 +51,9 @@ export class HotelEntity extends BaseEntity {
   totalRooms: number;
 
 
-  @OneToMany((_type) => HotelBookingEntity, (booking) => booking.hotel)
-  bookings: HotelBookingEntity[];
+  @OneToMany((_type) => BookingEntity, (booking) => booking.hotel)
+  bookings: BookingEntity[];
+
+  @OneToMany((_type) => BookingAllocationEntity, (booking) => booking.hotel)
+  allocations: BookingAllocationEntity[];
 }

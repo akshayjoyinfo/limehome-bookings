@@ -14,13 +14,18 @@ import {
 import { IngestHotelsFromHereCommand } from '../../commands/ingest-hotels-from-here.command';
 import { HotelEntity } from '../../entities/hotel.entity';
 
+
 @CommandHandler(IngestHotelsFromHereCommand)
 export class IngestHotelsFromHereCommandHandler
   implements ICommandHandler<IngestHotelsFromHereCommand>
 {
   private logger = new Logger(IngestHotelsFromHereCommandHandler.name);
-
-  constructor(
+/**
+ * Creates an instance of ingest hotels from here command handler.
+ * @param _dataProviders 
+ * @param repository 
+ */
+constructor(
     //private readonly eventEmitter: EventEmitter2,
     @Inject(HOTEL_DATA_PROVIDER_SERVICE)
     private readonly _dataProviders: IHotelDataProvider[],
@@ -44,6 +49,7 @@ export class IngestHotelsFromHereCommandHandler
       ),
     )) as unknown as HotelHereApiResponseModel;
 
+    
     this.ingestEntities(res.items);
     this.logger.log(`Sync completed`);
     return res;

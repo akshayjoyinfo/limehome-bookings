@@ -103,12 +103,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(repository: <a href="../classes/HotelBookingEntity.html" target="_self">Repository&lt;HotelBookingEntity&gt;</a>)</code>
+<code>constructor(repository: <a href="../entitys/BookingAllocationEntity.html" target="_self">Repository&lt;BookingAllocationEntity&gt;</a>, configService: <a href="../classes/IConfigService.html" target="_self">IConfigService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/bookings/validators/booking/booking_available.validator.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/bookings/validators/booking/booking_available.validator.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -129,7 +129,19 @@
                                                         <td>repository</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/HotelBookingEntity.html" target="_self" >Repository&lt;HotelBookingEntity&gt;</a></code>
+                                                                        <code><a href="../entitys/BookingAllocationEntity.html" target="_self" >Repository&lt;BookingAllocationEntity&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/IConfigService.html" target="_self" >IConfigService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -242,8 +254,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">src/bookings/validators/booking/booking_available.validator.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/bookings/validators/booking/booking_available.validator.ts:23</a></div>
                 </td>
             </tr>
 
@@ -305,29 +317,29 @@ import {
   ValidationArguments,
 } from &#x27;class-validator&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
+import { IConfigService } from &#x27;../../../global/config/config.adapter&#x27;;
 import { CreateHotelBookingRequest } from &#x27;../../../models/request/hotel-booking-request.dto&#x27;;
 import { HotelEntity } from &#x27;../../entities/hotel.entity&#x27;;
-import { HotelBookingEntity } from &#x27;../../entities/hotel_booking.entity&#x27;;
+import { BookingAllocationEntity } from &#x27;../../entities/booking-allocation.entity&#x27;;
 
 @ValidatorConstraint({ name: &#x27;BookingAvailable&#x27;, async: true })
 @Injectable()
 export class BookingAvailableValidator implements ValidatorConstraintInterface {
   constructor(
-    @InjectRepository(HotelBookingEntity)
-    private readonly repository: Repository&lt;HotelBookingEntity&gt;,
+    @InjectRepository(BookingAllocationEntity)
+    private readonly repository: Repository&lt;BookingAllocationEntity&gt;,
+    private readonly configService: IConfigService
   ) {}
 
   async validate(value: CreateHotelBookingRequest) {
     try {
-
-        
-
+      var limitBookingPerDay &#x3D; +this.configService.get(&#x27;BOOKINGS_PER_DAY&#x27;)
       var records &#x3D; await this.repository.query(&#x60;
-        select booking_date::date,count(1) from hotel_bookings
+        select booking_date::date,count(1) from booking_allocations
         where hotel_id&#x3D;$3 AND booking_date::date &gt;&#x3D;$1 and booking_date::date &lt;$2
-        group by booking_date::date
-        having count(1) &gt; 10
-      &#x60;,[checkIn, checkOut, value.hotelId]);
+        group by hotel_id,booking_date::date
+        having count(1) &gt;&#x3D; $4
+      &#x60;,[value.checkInDate, value.checkOutDate, value.hotelId,limitBookingPerDay]);
 
       if(records.length &gt;0)
         return false;

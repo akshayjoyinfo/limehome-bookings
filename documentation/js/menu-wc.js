@@ -76,13 +76,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/BookingsModule.html" data-type="entity-link" >BookingsModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-BookingsModule-8becd94f1777ee0844686571aec4be372027332814d4c440417a5134a11e27e2a67b58bd335ac5076fbd041984bbfea63262825795221075c57a8bbf39f6f10d"' : 'data-target="#xs-controllers-links-module-BookingsModule-8becd94f1777ee0844686571aec4be372027332814d4c440417a5134a11e27e2a67b58bd335ac5076fbd041984bbfea63262825795221075c57a8bbf39f6f10d"' }>
+                                            'data-target="#controllers-links-module-BookingsModule-777557a2f26fc0d8e0d6265ef5d0abd4fc531e0b8cdb30754e6f40a8f145c1727bae615f9b3dbc6a2e5367e8db03e2942e56f0b14f0b3875611d1d9945440136"' : 'data-target="#xs-controllers-links-module-BookingsModule-777557a2f26fc0d8e0d6265ef5d0abd4fc531e0b8cdb30754e6f40a8f145c1727bae615f9b3dbc6a2e5367e8db03e2942e56f0b14f0b3875611d1d9945440136"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-BookingsModule-8becd94f1777ee0844686571aec4be372027332814d4c440417a5134a11e27e2a67b58bd335ac5076fbd041984bbfea63262825795221075c57a8bbf39f6f10d"' :
-                                            'id="xs-controllers-links-module-BookingsModule-8becd94f1777ee0844686571aec4be372027332814d4c440417a5134a11e27e2a67b58bd335ac5076fbd041984bbfea63262825795221075c57a8bbf39f6f10d"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-BookingsModule-777557a2f26fc0d8e0d6265ef5d0abd4fc531e0b8cdb30754e6f40a8f145c1727bae615f9b3dbc6a2e5367e8db03e2942e56f0b14f0b3875611d1d9945440136"' :
+                                            'id="xs-controllers-links-module-BookingsModule-777557a2f26fc0d8e0d6265ef5d0abd4fc531e0b8cdb30754e6f40a8f145c1727bae615f9b3dbc6a2e5367e8db03e2942e56f0b14f0b3875611d1d9945440136"' }>
                                             <li class="link">
                                                 <a href="controllers/HereHotelsController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >HereHotelsController</a>
                                             </li>
@@ -93,13 +93,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-BookingsModule-8becd94f1777ee0844686571aec4be372027332814d4c440417a5134a11e27e2a67b58bd335ac5076fbd041984bbfea63262825795221075c57a8bbf39f6f10d"' : 'data-target="#xs-injectables-links-module-BookingsModule-8becd94f1777ee0844686571aec4be372027332814d4c440417a5134a11e27e2a67b58bd335ac5076fbd041984bbfea63262825795221075c57a8bbf39f6f10d"' }>
+                                        'data-target="#injectables-links-module-BookingsModule-777557a2f26fc0d8e0d6265ef5d0abd4fc531e0b8cdb30754e6f40a8f145c1727bae615f9b3dbc6a2e5367e8db03e2942e56f0b14f0b3875611d1d9945440136"' : 'data-target="#xs-injectables-links-module-BookingsModule-777557a2f26fc0d8e0d6265ef5d0abd4fc531e0b8cdb30754e6f40a8f145c1727bae615f9b3dbc6a2e5367e8db03e2942e56f0b14f0b3875611d1d9945440136"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-BookingsModule-8becd94f1777ee0844686571aec4be372027332814d4c440417a5134a11e27e2a67b58bd335ac5076fbd041984bbfea63262825795221075c57a8bbf39f6f10d"' :
-                                        'id="xs-injectables-links-module-BookingsModule-8becd94f1777ee0844686571aec4be372027332814d4c440417a5134a11e27e2a67b58bd335ac5076fbd041984bbfea63262825795221075c57a8bbf39f6f10d"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-BookingsModule-777557a2f26fc0d8e0d6265ef5d0abd4fc531e0b8cdb30754e6f40a8f145c1727bae615f9b3dbc6a2e5367e8db03e2942e56f0b14f0b3875611d1d9945440136"' :
+                                        'id="xs-injectables-links-module-BookingsModule-777557a2f26fc0d8e0d6265ef5d0abd4fc531e0b8cdb30754e6f40a8f145c1727bae615f9b3dbc6a2e5367e8db03e2942e56f0b14f0b3875611d1d9945440136"' }>
                                         <li class="link">
                                             <a href="injectables/BookingAvailableValidator.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >BookingAvailableValidator</a>
                                         </li>
@@ -148,7 +148,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="entities-links"' : 'id="xs-entities-links"' }>
                                 <li class="link">
-                                    <a href="entities/HotelBookingEntity.html" data-type="entity-link" >HotelBookingEntity</a>
+                                    <a href="entities/BookingAllocationEntity.html" data-type="entity-link" >BookingAllocationEntity</a>
+                                </li>
+                                <li class="link">
+                                    <a href="entities/BookingEntity.html" data-type="entity-link" >BookingEntity</a>
                                 </li>
                                 <li class="link">
                                     <a href="entities/HotelEntity.html" data-type="entity-link" >HotelEntity</a>
@@ -192,9 +195,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/HereHotelSyncRequest.html" data-type="entity-link" >HereHotelSyncRequest</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/HotelBookingEntity.html" data-type="entity-link" >HotelBookingEntity</a>
                             </li>
                             <li class="link">
                                 <a href="classes/HotelBookngParam.html" data-type="entity-link" >HotelBookngParam</a>
@@ -275,6 +275,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ApiResponse.html" data-type="entity-link" >ApiResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/BookingDetailModel.html" data-type="entity-link" >BookingDetailModel</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/BookingReferenceDetailModel.html" data-type="entity-link" >BookingReferenceDetailModel</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/BookingResponseModel.html" data-type="entity-link" >BookingResponseModel</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Category.html" data-type="entity-link" >Category</a>

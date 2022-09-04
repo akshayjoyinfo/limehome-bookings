@@ -1,5 +1,5 @@
 import { HttpService } from '@nestjs/axios';
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { map, Observable } from 'rxjs';
 import { HotelDataProviderSource } from '../../enums/hotel-data-provider-source.enum';
@@ -11,6 +11,7 @@ import { IHotelDataProvider } from '../adapters/hotel-data-provider.adapter';
 export class HereHotelDataProviderService implements IHotelDataProvider {
   private readonly API_HOST: string;
   private readonly API_KEY: string;
+  private logger = new Logger(HereHotelDataProviderService.name);
 
   constructor(
     private readonly httpService: HttpService,
@@ -32,6 +33,7 @@ export class HereHotelDataProviderService implements IHotelDataProvider {
   ): Observable<AxiosResponse<HotelHereApiResponseModel>> {
     const hotelSearchRequestPath = `/v1/discover?in=circle:${latitude},${longitude};r=${radiusInMeters}&limit=100&q=hotel&apiKey=${this.API_KEY}`;
     const requestUrl = this.API_HOST + hotelSearchRequestPath;
+    this.logger.log('URL '+ requestUrl);
     return this.httpService
       .get(requestUrl)
       .pipe(map((response) => response.data));

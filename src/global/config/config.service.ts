@@ -9,6 +9,9 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
 import { IConfigService } from './config.adapter';
 import { SnakeNamingStrategy } from '../database/snake-naming.startegy';
 import { DB } from '../../enums/database-connection.enum';
+import { HotelEntity } from '../../bookings/entities/hotel.entity';
+import { BookingEntity } from '../../bookings/entities/booking.entity';
+import { BookingAllocationEntity } from '../../bookings/entities/booking-allocation.entity';
 
 @Injectable()
 export class ConfigurationService
@@ -34,11 +37,11 @@ export class ConfigurationService
     return {
       type: 'postgres',
       url: this.get('DB_URL'),
-      entities: ['dist/**/*.entity.js'],
+      entities: [HotelEntity, BookingEntity, BookingAllocationEntity],
       migrationsTableName: 'migrations',
       migrations: ['dist/migrations/*.js'],
       synchronize: true,
-      logging: ['error'], //['query', 'error'],
+      logging: ['query'], //['query', 'error'],
       namingStrategy: new SnakeNamingStrategy(),
       useUTC: true,
     };

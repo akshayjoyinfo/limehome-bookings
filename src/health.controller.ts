@@ -27,7 +27,6 @@ export class HealthController {
   @HealthCheck()
   @ApiOperation(ApiContracts.LIMEHOME_BOOKINGS_API_Health)
   check() {
-    console.log(this.configService.get('NODE_ENV'));
     return this.health.check([
       () => this.http.pingCheck('HERE:API', 'https://developer.here.com'),
       () =>

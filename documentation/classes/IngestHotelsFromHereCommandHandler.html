@@ -135,12 +135,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:22</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of ingest hotels from here command handler.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -209,7 +211,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -245,8 +247,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:35</a></div>
                 </td>
             </tr>
 
@@ -316,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:57</a></div>
                 </td>
             </tr>
 
@@ -391,13 +393,18 @@ import {
 import { IngestHotelsFromHereCommand } from &#x27;../../commands/ingest-hotels-from-here.command&#x27;;
 import { HotelEntity } from &#x27;../../entities/hotel.entity&#x27;;
 
+
 @CommandHandler(IngestHotelsFromHereCommand)
 export class IngestHotelsFromHereCommandHandler
   implements ICommandHandler&lt;IngestHotelsFromHereCommand&gt;
 {
   private logger &#x3D; new Logger(IngestHotelsFromHereCommandHandler.name);
-
-  constructor(
+/**
+ * Creates an instance of ingest hotels from here command handler.
+ * @param _dataProviders 
+ * @param repository 
+ */
+constructor(
     //private readonly eventEmitter: EventEmitter2,
     @Inject(HOTEL_DATA_PROVIDER_SERVICE)
     private readonly _dataProviders: IHotelDataProvider[],

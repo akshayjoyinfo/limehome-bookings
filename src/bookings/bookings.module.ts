@@ -19,7 +19,8 @@ import { HotelEntity } from './entities/hotel.entity';
 import { DB } from '../enums/database-connection.enum';
 import { HotelsController } from './controllers/hotels.controller';
 import { validators } from './validators';
-import { HotelBookingEntity } from './entities/hotel_booking.entity';
+import { BookingAllocationEntity } from './entities/booking-allocation.entity';
+import { BookingEntity } from './entities/booking.entity';
 
 @Module({
   imports: [
@@ -27,7 +28,7 @@ import { HotelBookingEntity } from './entities/hotel_booking.entity';
     ConfigModule,
     CqrsModule,
     EventEmitterModule.forRoot(),
-    TypeOrmModule.forFeature([HotelEntity, HotelBookingEntity]),
+    TypeOrmModule.forFeature([HotelEntity, BookingEntity, BookingAllocationEntity]),
   ],
   controllers: [HereHotelsController, HotelsController],
   providers: [

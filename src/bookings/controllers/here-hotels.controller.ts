@@ -8,6 +8,7 @@ import {
   Inject,
   ParseFloatPipe,
   ParseIntPipe,
+  Post,
   Query,
 } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
@@ -26,7 +27,7 @@ import { IngestHotelsFromHereCommand } from '../commands/ingest-hotels-from-here
 export class HereHotelsController {
   constructor(private readonly commandBus: CommandBus) {}
 
-  @Get()
+  @Post()
   @ApiOperation(ApiContracts.LIMEHOME_BOOKINGS_API_Here_Hotels)
   @ApiQuery({
     name: 'latitude',
@@ -46,7 +47,7 @@ export class HereHotelsController {
     description: 'Circular distance within meters',
     required: false,
   })
-  async retrieveHotelsWithHere(@Query() query: HereHotelSyncRequest) {
+  async importHotelsfromHereApi(@Query() query: HereHotelSyncRequest) {
     return this.commandBus.execute<
       IngestHotelsFromHereCommand,
       HotelHereApiResponseModel

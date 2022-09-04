@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>CreateBookingCommandHandler</p>
+<p>Create Booking for Hotel</p>
+
+            </p>
 
 
             <p class="comment">
@@ -90,8 +98,17 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#createBookingAllocationsEntityFromCommand" >createBookingAllocationsEntityFromCommand</a>
+                            </li>
+                            <li>
+                                <a href="#createBookingEntityFromCommand" >createBookingEntityFromCommand</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#execute" >execute</a>
+                            </li>
+                            <li>
+                                <a href="#transformBookingIntoBookingResponseModel" >transformBookingIntoBookingResponseModel</a>
                             </li>
                             <li>
                                 <a href="#transformDatesForBookingRequest" >transformDatesForBookingRequest</a>
@@ -114,15 +131,57 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(bookingRepository: <a href="../entitys/BookingEntity.html" target="_self">Repository&lt;BookingEntity&gt;</a>, bookingAllocationRepository: <a href="../entitys/BookingAllocationEntity.html" target="_self">Repository&lt;BookingAllocationEntity&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:26</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>bookingRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/BookingEntity.html" target="_self" >Repository&lt;BookingEntity&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>bookingAllocationRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/BookingAllocationEntity.html" target="_self" >Repository&lt;BookingAllocationEntity&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -133,6 +192,136 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createBookingAllocationsEntityFromCommand"></a>
+                    <span class="name">
+                        <span ><b>createBookingAllocationsEntityFromCommand</b></span>
+                        <a href="#createBookingAllocationsEntityFromCommand"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createBookingAllocationsEntityFromCommand(command)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>command</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/BookingAllocationEntity.html" target="_self" >BookingAllocationEntity[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createBookingEntityFromCommand"></a>
+                    <span class="name">
+                        <span ><b>createBookingEntityFromCommand</b></span>
+                        <a href="#createBookingEntityFromCommand"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createBookingEntityFromCommand(command)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:76</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>command</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/BookingEntity.html" target="_self" >BookingEntity</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -155,8 +344,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:34</a></div>
                 </td>
             </tr>
 
@@ -194,7 +383,76 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/CreateBookingCommand.html" target="_self" >Promise&lt;CreateBookingCommand&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/BookingResponseModel.html" target="_self" >Promise&lt;BookingResponseModel&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformBookingIntoBookingResponseModel"></a>
+                    <span class="name">
+                        <span ><b>transformBookingIntoBookingResponseModel</b></span>
+                        <a href="#transformBookingIntoBookingResponseModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transformBookingIntoBookingResponseModel(bookingEntity: <a href="../entitys/BookingEntity.html" target="_self">BookingEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>bookingEntity</td>
+                                    <td>
+                                                <code><a href="../entitys/BookingEntity.html" target="_self" >BookingEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/BookingResponseModel.html" target="_self" >BookingResponseModel</a></code>
 
                     </div>
                     <div class="io-description">
@@ -224,8 +482,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:60</a></div>
                 </td>
             </tr>
 
@@ -283,42 +541,135 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BadRequestException, UseFilters } from &quot;@nestjs/common&quot;;
-import { CommandHandler, ICommandHandler } from &quot;@nestjs/cqrs&quot;;
-import { validate } from &quot;class-validator&quot;;
-import { AppExceptionFilter } from &quot;../../../utils/filters/app-exception.filter&quot;;
-import { CreateBookingCommand } from &quot;../../commands/create-booking.command&quot;;
-import { IngestHotelsFromHereCommand } from &quot;../../commands/ingest-hotels-from-here.command&quot;;
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BadRequestException, UseFilters } from &#x27;@nestjs/common&#x27;;
+import { CommandHandler, ICommandHandler } from &#x27;@nestjs/cqrs&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { validate } from &#x27;class-validator&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
+import { AppExceptionFilter } from &#x27;../../../utils/filters/app-exception.filter&#x27;;
+import { CreateBookingCommand } from &#x27;../../commands/create-booking.command&#x27;;
+import { IngestHotelsFromHereCommand } from &#x27;../../commands/ingest-hotels-from-here.command&#x27;;
+import { HotelEntity } from &#x27;../../entities/hotel.entity&#x27;;
+import { BookingAllocationEntity } from &#x27;../../entities/booking-allocation.entity&#x27;;
+import { BookingEntity } from &#x27;../../entities/booking.entity&#x27;;
+import {
+  BookingDetailModel,
+  BookingReferenceDetailModel,
+  BookingResponseModel,
+} from &#x27;../../../models/response/booking-response.model&#x27;;
+/**
+ * CreateBookingCommandHandler
+ *
+ * Create Booking for Hotel
+ */
 @CommandHandler(CreateBookingCommand)
 @UseFilters(AppExceptionFilter)
 export class CreateBookingCommandHandler
   implements ICommandHandler&lt;CreateBookingCommand&gt;
 {
-    constructor(){}
+  constructor(
+    @InjectRepository(BookingEntity)
+    private readonly bookingRepository: Repository&lt;BookingEntity&gt;,
+    @InjectRepository(BookingAllocationEntity)
+    private readonly bookingAllocationRepository: Repository&lt;BookingAllocationEntity&gt;,
+  ) {}
 
-    async execute(command: CreateBookingCommand): Promise&lt;CreateBookingCommand&gt; {
-        var validationResults&#x3D; await validate(command);
+  async execute(command: CreateBookingCommand): Promise&lt;BookingResponseModel&gt; {
+    var validationResults &#x3D; await validate(command);
 
-        if(validationResults.length&gt;0){
-            throw new BadRequestException(validationResults);
-        }
-        return command;
+    if (validationResults.length &gt; 0) {
+      // this is business valiation erros for HOTEL-DATE booking combination maximum is 10
+      // by considering SRP validation rules kept in different place ,
+      // might refactor later with more elgant flutent validations
+      // ideally I call specifically for validate object, it needs to pass throuhg some pipelien level before reaching command handler
+      // need to validate, but need to research little bit here
+      throw new BadRequestException(validationResults);
     }
 
-    
-    transformDatesForBookingRequest(command: CreateBookingCommand){
+    this.transformDatesForBookingRequest(command);
 
-        const timePortion &#x3D; new Date().getTime() % (3600 * 1000 * 24);
-        var checkIn &#x3D; new Date((+command.bookingRequest.checkInDate - timePortion)+(15*60*60*1000));
+    var newBooking &#x3D; this.createBookingEntityFromCommand(command);
+    var bookingAllocations &#x3D;
+      this.createBookingAllocationsEntityFromCommand(command);
 
-        var checkOut &#x3D; new Date((+command.bookingRequest.checkOutDate - timePortion)+(11*60*60*1000));
+    newBooking.allocations &#x3D; bookingAllocations;
 
-        console.log(checkIn);
-        console.log(checkOut);
+    await this.bookingRepository.save(newBooking);
+    await this.bookingAllocationRepository.save(bookingAllocations);
+
+    return this.transformBookingIntoBookingResponseModel(newBooking);
+  }
+
+  transformDatesForBookingRequest(command: CreateBookingCommand) {
+    const timePortion &#x3D; new Date().getTime() % (3600 * 1000 * 24);
+    var checkIn &#x3D; new Date(
+      +command.bookingRequest.checkInDate - timePortion + 14 * 60 * 60 * 1000,
+    );
+
+    var checkOut &#x3D; new Date(
+      +command.bookingRequest.checkOutDate - timePortion + 11 * 60 * 60 * 1000,
+    );
+
+    command.bookingRequest.checkInDate &#x3D; checkIn;
+    command.bookingRequest.checkOutDate &#x3D; checkOut;
+
+    console.log(command);
+  }
+
+  createBookingEntityFromCommand(command): BookingEntity {
+    return {
+      hotelId: command.bookingRequest.hotelId,
+      checkInDate: command.bookingRequest.checkInDate,
+      checkOutDate: command.bookingRequest.checkOutDate,
+      createdAtUtc: new Date(),
+      createdBy: command.bookingRequest?.guest?.name,
+      guestMail: command.bookingRequest?.guest?.email,
+      guestName: command.bookingRequest?.guest?.name,
+    } as BookingEntity;
+  }
+
+  createBookingAllocationsEntityFromCommand(
+    command,
+  ): BookingAllocationEntity[] {
+    var bookings: BookingAllocationEntity[] &#x3D; [];
+
+    for (
+      var bookingDate &#x3D; command.bookingRequest.checkInDate;
+      bookingDate &lt; command.bookingRequest.checkOutDate;
+      bookingDate.setDate(bookingDate.getDate() + 1)
+    ) {
+      console.log(bookingDate);
+      bookings.push({
+        hotelId: command.bookingRequest.hotelId,
+        bookingDate: new Date(bookingDate),
+        createdAtUtc: new Date(),
+        createdBy: command.bookingRequest?.guest?.name,
+      } as BookingAllocationEntity);
     }
 
-}</code></pre>
+    return bookings;
+  }
+
+  transformBookingIntoBookingResponseModel(
+    bookingEntity: BookingEntity,
+  ): BookingResponseModel {
+    return {
+      bookingDetail: {
+        checkInDate: bookingEntity.checkInDate,
+        checkOutDate: bookingEntity.checkOutDate,
+        hotelId: bookingEntity.hotelId,
+        hotelName: bookingEntity?.hotel.name,
+        bookingReferences: bookingEntity.allocations.map((alloc) &#x3D;&gt; {
+          return {
+            bookingId: alloc?.booking.id,
+            bookingDate: alloc.bookingDate,
+          } as BookingReferenceDetailModel;
+        }),
+      } as BookingDetailModel,
+    } as BookingResponseModel;
+  }
+}
+</code></pre>
     </div>
 </div>
 

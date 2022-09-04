@@ -3,11 +3,11 @@ import { type } from 'os';
 import { Column, Entity, Index, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from '../../global/database/base.entity';
 import { Address } from '../dto/hotel/address.dto';
+import { BookingEntity } from './booking.entity';
 import { HotelEntity } from './hotel.entity';
 
-@Entity('hotel_bookings')
-@Index('idx_unique_hotel_bookings', ['hotelId', 'bookingDate'], { unique: true })
-export class HotelBookingEntity extends BaseEntity {
+@Entity('booking_allocations')
+export class BookingAllocationEntity extends BaseEntity {
   @PrimaryGeneratedColumn({ name: 'id', type: 'bigint' })
   id: number;
 
@@ -19,6 +19,11 @@ export class HotelBookingEntity extends BaseEntity {
   hotelId: number;
 
   @Column({
+    type: 'bigint'
+  })
+  bookingId: number
+
+  @Column({
     type: 'timestamp with time zone'
   })
   bookingDate: Date; //utc so this can be formatted to any formats
@@ -27,6 +32,7 @@ export class HotelBookingEntity extends BaseEntity {
   @ManyToOne((_type) => HotelEntity, (hotel) => hotel.bookings)
   hotel: HotelEntity;
 
+  @ManyToOne((_type) => BookingEntity, (booking) => booking.allocations)
+  booking: BookingEntity;
 
- 
 }

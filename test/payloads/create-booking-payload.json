@@ -1,0 +1,12 @@
+{
+  "hotelId": 1,
+  "checkInDate": "2022-09-02T15:30:02.833Z",
+  "checkOutDate": "2022-09-04T15:30:02.833Z",
+  "amount": 10000,
+  "rooms": 1,
+  "guest": {
+    "name": "string",
+    "email": "string@string.com",
+    "phone": "+917204285639"
+  }
+}
