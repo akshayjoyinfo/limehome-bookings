@@ -18,17 +18,17 @@ describe('HotelsController (e2e)', () => {
     app = moduleFixture.createNestApplication();
     await app.init();
 
-    const entities = getConnection().entityMetadatas;
-    for (const entity of entities) {
-      const repository = await getConnection().getRepository(entity.name);
-      if (
-        entity.tableName === 'bookings' ||
-        entity.tableName === 'booking_allocations'
-      )
-        await repository.query(
-          `TRUNCATE ${entity.tableName} RESTART IDENTITY CASCADE;`,
-        );
-    }
+    // const entities = getConnection().entityMetadatas;
+    // for (const entity of entities) {
+    //   const repository = await getConnection().getRepository(entity.name);
+    //   if (
+    //     entity.tableName === 'bookings' ||
+    //     entity.tableName === 'booking_allocations'
+    //   )
+    //     await repository.query(
+    //       `TRUNCATE ${entity.tableName} RESTART IDENTITY CASCADE;`,
+    //     );
+    // }
   });
 
   afterAll(async () => {
