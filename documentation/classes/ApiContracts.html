@@ -96,6 +96,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
+                                <a href="#LIMEHOME_BOOKINGS_API_Hotels_Retrieve_Bookings" >LIMEHOME_BOOKINGS_API_Hotels_Retrieve_Bookings</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
                                 <a href="#LIMEHOME_BOOKINGS_API_Hotels_Search" >LIMEHOME_BOOKINGS_API_Hotels_Search</a>
                             </li>
                         </ul>
@@ -162,8 +166,8 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-    description: &#x27;Retrieve Hotels based on the Coordinates&#x27;,
-    summary: &#x27;Retrieve Hotels based on the Coordinates via HERE Api&#x27;,
+    description: &#x27;Retrieve Hotels then import to LIME HOME DB based on the Coordinates&#x27;,
+    summary: &#x27;Retrieve Hotels then import to LIME HOME DB based on the Coordinates&#x27;,
     tags: [&#x27;Here&#x27;],
   } as OperationObject</code>
                     </td>
@@ -201,6 +205,36 @@
                     <tr>
                         <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/utils/docs/api-contracts.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LIMEHOME_BOOKINGS_API_Hotels_Retrieve_Bookings"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>LIMEHOME_BOOKINGS_API_Hotels_Retrieve_Bookings</b></span>
+                        <a href="#LIMEHOME_BOOKINGS_API_Hotels_Retrieve_Bookings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    description: &#x27;Get Bookings in Given Hotel&#x27;,
+    summary: &#x27;Get Bookings in Given Hotel&#x27;,
+    tags: [&#x27;LimeHome&#x27;],
+  } as OperationObject</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/utils/docs/api-contracts.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -259,8 +293,8 @@ export class ApiContracts {
   } as OperationObject;
 
   public static LIMEHOME_BOOKINGS_API_Here_Hotels &#x3D; {
-    description: &#x27;Retrieve Hotels based on the Coordinates&#x27;,
-    summary: &#x27;Retrieve Hotels based on the Coordinates via HERE Api&#x27;,
+    description: &#x27;Retrieve Hotels then import to LIME HOME DB based on the Coordinates&#x27;,
+    summary: &#x27;Retrieve Hotels then import to LIME HOME DB based on the Coordinates&#x27;,
     tags: [&#x27;Here&#x27;],
   } as OperationObject;
 
@@ -275,7 +309,15 @@ export class ApiContracts {
     summary: &#x27;Book room(s) in LimeHome activated hotels&#x27;,
     tags: [&#x27;LimeHome&#x27;],
   } as OperationObject;
+
+  public static LIMEHOME_BOOKINGS_API_Hotels_Retrieve_Bookings &#x3D; {
+    description: &#x27;Get Bookings in Given Hotel&#x27;,
+    summary: &#x27;Get Bookings in Given Hotel&#x27;,
+    tags: [&#x27;LimeHome&#x27;],
+  } as OperationObject;
 }
+
+
 </code></pre>
     </div>
 </div>

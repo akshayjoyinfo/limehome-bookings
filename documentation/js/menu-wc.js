@@ -182,6 +182,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BaseEntity.html" data-type="entity-link" >BaseEntity</a>
                             </li>
                             <li class="link">
+                                <a href="classes/BookingDetailReponseModel.html" data-type="entity-link" >BookingDetailReponseModel</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/BookingHotelResponseModel.html" data-type="entity-link" >BookingHotelResponseModel</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/BookingReferenceDetailModel.html" data-type="entity-link" >BookingReferenceDetailModel</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CreateBookingCommand.html" data-type="entity-link" >CreateBookingCommand</a>
                             </li>
                             <li class="link">
@@ -191,10 +200,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CreateHotelBookingRequest.html" data-type="entity-link" >CreateHotelBookingRequest</a>
                             </li>
                             <li class="link">
+                                <a href="classes/GetHotelBookingsQuery.html" data-type="entity-link" >GetHotelBookingsQuery</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/GetHotelBookingsQueryHandler.html" data-type="entity-link" >GetHotelBookingsQueryHandler</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/GetHotelsBookingsQuery.html" data-type="entity-link" >GetHotelsBookingsQuery</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/GuestDetail.html" data-type="entity-link" >GuestDetail</a>
                             </li>
                             <li class="link">
                                 <a href="classes/HereHotelSyncRequest.html" data-type="entity-link" >HereHotelSyncRequest</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/HotelBookingListResponseModel.html" data-type="entity-link" >HotelBookingListResponseModel</a>
                             </li>
                             <li class="link">
                                 <a href="classes/HotelBookngParam.html" data-type="entity-link" >HotelBookngParam</a>
@@ -275,15 +296,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ApiResponse.html" data-type="entity-link" >ApiResponse</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/BookingDetailModel.html" data-type="entity-link" >BookingDetailModel</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/BookingReferenceDetailModel.html" data-type="entity-link" >BookingReferenceDetailModel</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/BookingResponseModel.html" data-type="entity-link" >BookingResponseModel</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Category.html" data-type="entity-link" >Category</a>

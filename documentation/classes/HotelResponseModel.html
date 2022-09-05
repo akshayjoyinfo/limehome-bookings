@@ -139,9 +139,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/models/response/hotel-list-response.model.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/models/response/hotel-list-response.model.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -165,9 +174,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/models/response/hotel-list-response.model.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/models/response/hotel-list-response.model.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -191,9 +209,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/models/response/hotel-list-response.model.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/models/response/hotel-list-response.model.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -217,9 +244,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/models/response/hotel-list-response.model.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/models/response/hotel-list-response.model.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -243,9 +279,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/models/response/hotel-list-response.model.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/models/response/hotel-list-response.model.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -269,9 +314,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/models/response/hotel-list-response.model.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/models/response/hotel-list-response.model.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -295,9 +349,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/models/response/hotel-list-response.model.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/models/response/hotel-list-response.model.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -316,7 +379,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Point } from &quot;geojson&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;;
+import { Point } from &quot;geojson&quot;;
 import { Address } from &quot;../../bookings/dto/hotel/address.dto&quot;;
 
 export class HotelListResponseModel{
@@ -324,12 +388,25 @@ export class HotelListResponseModel{
 }
 
 export class HotelResponseModel {
+    @ApiProperty()
     id: number;
+
+    @ApiProperty()
     name: string;
+
+    @ApiProperty()
     sourceSystem: string;
+
+    @ApiProperty()
     sourceSystemIdentifier: string;
+
+    @ApiProperty()
     address: Address;
+
+    @ApiProperty()
     outstandingRooms: number;
+    
+    @ApiProperty()
     location: {
         latitude: number;
         longitude: number;

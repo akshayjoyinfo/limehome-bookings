@@ -138,7 +138,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @OneToMany(_type &#x3D;&gt; BookingAllocationEntity, allocation &#x3D;&gt; allocation.booking)<br />
+                            @OneToMany(_type &#x3D;&gt; BookingAllocationEntity, allocation &#x3D;&gt; allocation.booking, {eager: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -313,7 +313,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(_type &#x3D;&gt; HotelEntity, hotel &#x3D;&gt; hotel.bookings)<br />
+                            @ManyToOne(_type &#x3D;&gt; HotelEntity, hotel &#x3D;&gt; hotel.bookings, {eager: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -441,11 +441,11 @@ export class BookingEntity extends BaseEntity {
   guestMail: string; //utc so this can be formatted to any formats
 
 
-  @ManyToOne((_type) &#x3D;&gt; HotelEntity, (hotel) &#x3D;&gt; hotel.bookings)
+  @ManyToOne((_type) &#x3D;&gt; HotelEntity, (hotel) &#x3D;&gt; hotel.bookings,{eager: true})
   hotel: HotelEntity;
 
 
-  @OneToMany((_type) &#x3D;&gt; BookingAllocationEntity, (allocation) &#x3D;&gt; allocation.booking)
+  @OneToMany((_type) &#x3D;&gt; BookingAllocationEntity, (allocation) &#x3D;&gt; allocation.booking, {eager: true})
   allocations: BookingAllocationEntity[];
 }
 </code></pre>

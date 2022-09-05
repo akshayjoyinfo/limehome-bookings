@@ -318,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/bookings/handlers/commands/ingest-hotels-from-here-command.handler.ts:58</a></div>
                 </td>
             </tr>
 
@@ -428,6 +428,7 @@ constructor(
       ),
     )) as unknown as HotelHereApiResponseModel;
 
+    
     this.ingestEntities(res.items);
     this.logger.log(&#x60;Sync completed&#x60;);
     return res;

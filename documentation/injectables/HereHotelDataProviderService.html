@@ -92,6 +92,10 @@
                                 <a href="#headersRequest" >headersRequest</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#logger" >logger</a>
+                            </li>
+                            <li>
                                 <a href="#provider" >provider</a>
                             </li>
                         </ul>
@@ -132,7 +136,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -207,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:29</a></div>
                 </td>
             </tr>
 
@@ -377,7 +381,33 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logger"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>logger</b></span>
+                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Logger(HereHotelDataProviderService.name)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -408,7 +438,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/bookings/services/here-hotel-data-provider.service.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -422,7 +452,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService } from &#x27;@nestjs/axios&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { Injectable, Logger } from &#x27;@nestjs/common&#x27;;
 import { AxiosResponse } from &#x27;axios&#x27;;
 import { map, Observable } from &#x27;rxjs&#x27;;
 import { HotelDataProviderSource } from &#x27;../../enums/hotel-data-provider-source.enum&#x27;;
@@ -434,6 +464,7 @@ import { IHotelDataProvider } from &#x27;../adapters/hotel-data-provider.adapter
 export class HereHotelDataProviderService implements IHotelDataProvider {
   private readonly API_HOST: string;
   private readonly API_KEY: string;
+  private logger &#x3D; new Logger(HereHotelDataProviderService.name);
 
   constructor(
     private readonly httpService: HttpService,
@@ -455,6 +486,7 @@ export class HereHotelDataProviderService implements IHotelDataProvider {
   ): Observable&lt;AxiosResponse&lt;HotelHereApiResponseModel&gt;&gt; {
     const hotelSearchRequestPath &#x3D; &#x60;/v1/discover?in&#x3D;circle:${latitude},${longitude};r&#x3D;${radiusInMeters}&amp;limit&#x3D;100&amp;q&#x3D;hotel&amp;apiKey&#x3D;${this.API_KEY}&#x60;;
     const requestUrl &#x3D; this.API_HOST + hotelSearchRequestPath;
+    this.logger.log(&#x27;URL &#x27;+ requestUrl);
     return this.httpService
       .get(requestUrl)
       .pipe(map((response) &#x3D;&gt; response.data));

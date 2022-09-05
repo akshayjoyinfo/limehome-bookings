@@ -89,6 +89,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getBookingsForHotel" >getBookingsForHotel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#searchHotels" >searchHotels</a>
                             </li>
                         </ul>
@@ -137,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/bookings/controllers/hotels.controller.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/bookings/controllers/hotels.controller.ts:54</a></div>
                 </td>
             </tr>
 
@@ -188,7 +192,85 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>        <code><a href="../classes/BookingDetailReponseModel.html" target="_self" >Promise&lt;BookingDetailReponseModel&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBookingsForHotel"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getBookingsForHotel</b></span>
+                        <a href="#getBookingsForHotel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getBookingsForHotel(param: <a href="../classes/HotelBookngParam.html" target="_self">HotelBookngParam</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/:hotelId/bookings&#x27;)<br />@ApiOperation(ApiContracts.LIMEHOME_BOOKINGS_API_Hotels_Retrieve_Bookings)<br />@ApiParam({name: &#x27;hotelId&#x27;, type: Number, description: &#x27;Hotel ID for LimeHome Hotels, get the ID from Hotel Search&#x27;, required: true})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/bookings/controllers/hotels.controller.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>param</td>
+                                    <td>
+                                                <code><a href="../classes/HotelBookngParam.html" target="_self" >HotelBookngParam</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/HotelBookingListResponseModel.html" target="_self" >Promise&lt;HotelBookingListResponseModel&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -227,8 +309,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/bookings/controllers/hotels.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/bookings/controllers/hotels.controller.ts:39</a></div>
                 </td>
             </tr>
 
@@ -266,7 +348,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ApiResponse.html" target="_self" >Promise&lt;HotelHereApiResponseModel&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -287,12 +369,16 @@ https://docs.nestjs.com/controllers#controllers
 import { Body, Controller, Get, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
 import { CommandBus, QueryBus } from &#x27;@nestjs/cqrs&#x27;;
 import { ApiOperation, ApiParam, ApiQuery } from &#x27;@nestjs/swagger&#x27;;
+import { query } from &#x27;express&#x27;;
 import { HotelHereApiResponseModel } from &#x27;../../models/here/hotel-here-api-response-model&#x27;;
 import { HereHotelSyncRequest } from &#x27;../../models/request/here-hotel-request.dto&#x27;;
 import { CreateHotelBookingRequest, HotelBookngParam } from &#x27;../../models/request/hotel-booking-request.dto&#x27;;
+import { GetHotelsBookingsQuery } from &#x27;../../models/request/get-hotels-bookings-query.dto&#x27;;
+import { BookingDetailReponseModel, HotelBookingListResponseModel } from &#x27;../../models/response/booking-response.model&#x27;;
 import { ApiContracts } from &#x27;../../utils/docs/api-contracts&#x27;;
 import { CreateBookingCommand } from &#x27;../commands/create-booking.command&#x27;;
 import { IngestHotelsFromHereCommand } from &#x27;../commands/ingest-hotels-from-here.command&#x27;;
+import { GetHotelBookingsQuery } from &#x27;../queries/get-hotels-bookings-query&#x27;;
 import { SerachHotelsQuery } from &#x27;../queries/search-hotels.query&#x27;;
 
 @Controller(&#x27;hotels&#x27;)
@@ -314,7 +400,7 @@ export class HotelsController {
     description: &#x27;Longitude for location&#x27;,
     required: true,
   })
-  async searchHotels(@Query() query: HereHotelSyncRequest) {
+  async searchHotels(@Query() query: HereHotelSyncRequest):Promise&lt;HotelHereApiResponseModel&gt; {
     return this.queryBus.execute&lt;SerachHotelsQuery, HotelHereApiResponseModel&gt;(
       new SerachHotelsQuery(query.latitude, query.longitude),
     );
@@ -329,14 +415,28 @@ export class HotelsController {
     description: &#x27;Hotel ID for LimeHome Hotels, get the ID from Hotel Search&#x27;,
     required: true,
   })
-  async createBookingInHotel(@Param() param: HotelBookngParam,@Body() bookingRequest: CreateHotelBookingRequest) {
+  async createBookingInHotel(@Param() param: HotelBookngParam,@Body() bookingRequest: CreateHotelBookingRequest):Promise&lt;BookingDetailReponseModel&gt;  {
     return this.commandBus.execute&lt;
       CreateBookingCommand,
-      CreateBookingCommand
+      BookingDetailReponseModel
     &gt;(
       new CreateBookingCommand(
         bookingRequest
       ),
+    );
+  }
+
+  @Get(&#x27;/:hotelId/bookings&#x27;)
+  @ApiOperation(ApiContracts.LIMEHOME_BOOKINGS_API_Hotels_Retrieve_Bookings)
+  @ApiParam({
+    name: &#x27;hotelId&#x27;,
+    type: Number,
+    description: &#x27;Hotel ID for LimeHome Hotels, get the ID from Hotel Search&#x27;,
+    required: true,
+  })
+  async getBookingsForHotel(@Param() param: HotelBookngParam): Promise&lt;HotelBookingListResponseModel&gt;  {
+    return this.queryBus.execute&lt;GetHotelsBookingsQuery, HotelBookingListResponseModel&gt;(
+      new GetHotelBookingsQuery(param.hotelId),
     );
   }
 }

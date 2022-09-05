@@ -85,7 +85,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#retrieveHotelsWithHere" >retrieveHotelsWithHere</a>
+                                <a href="#importHotelsfromHereApi" >importHotelsfromHereApi</a>
                             </li>
                         </ul>
                     </td>
@@ -108,18 +108,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="retrieveHotelsWithHere"></a>
+                    <a name="importHotelsfromHereApi"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>retrieveHotelsWithHere</b></span>
-                        <a href="#retrieveHotelsWithHere"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>importHotelsfromHereApi</b></span>
+                        <a href="#importHotelsfromHereApi"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>retrieveHotelsWithHere(query: <a href="../classes/HereHotelSyncRequest.html" target="_self">HereHotelSyncRequest</a>)</code>
+                    <code>importHotelsfromHereApi(query: <a href="../classes/HereHotelSyncRequest.html" target="_self">HereHotelSyncRequest</a>)</code>
                 </td>
             </tr>
 
@@ -127,14 +127,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiOperation(ApiContracts.LIMEHOME_BOOKINGS_API_Here_Hotels)<br />@ApiQuery({name: &#x27;latitude&#x27;, type: Number, description: &#x27;Latitude for location&#x27;, required: true})<br />@ApiQuery({name: &#x27;longitude&#x27;, type: Number, description: &#x27;Longitude for location&#x27;, required: true})<br />@ApiQuery({name: &#x27;distance&#x27;, type: Number, description: &#x27;Circular distance within meters&#x27;, required: false})<br /></code>
+                    <code>@Post()<br />@ApiOperation(ApiContracts.LIMEHOME_BOOKINGS_API_Here_Hotels)<br />@ApiQuery({name: &#x27;latitude&#x27;, type: Number, description: &#x27;Latitude for location&#x27;, required: true})<br />@ApiQuery({name: &#x27;longitude&#x27;, type: Number, description: &#x27;Longitude for location&#x27;, required: true})<br />@ApiQuery({name: &#x27;distance&#x27;, type: Number, description: &#x27;Circular distance within meters&#x27;, required: false})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/bookings/controllers/here-hotels.controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/bookings/controllers/here-hotels.controller.ts:50</a></div>
                 </td>
             </tr>
 
@@ -196,6 +196,7 @@ import {
   Inject,
   ParseFloatPipe,
   ParseIntPipe,
+  Post,
   Query,
 } from &#x27;@nestjs/common&#x27;;
 import { CommandBus } from &#x27;@nestjs/cqrs&#x27;;
@@ -214,7 +215,7 @@ import { IngestHotelsFromHereCommand } from &#x27;../commands/ingest-hotels-from
 export class HereHotelsController {
   constructor(private readonly commandBus: CommandBus) {}
 
-  @Get()
+  @Post()
   @ApiOperation(ApiContracts.LIMEHOME_BOOKINGS_API_Here_Hotels)
   @ApiQuery({
     name: &#x27;latitude&#x27;,
@@ -234,7 +235,7 @@ export class HereHotelsController {
     description: &#x27;Circular distance within meters&#x27;,
     required: false,
   })
-  async retrieveHotelsWithHere(@Query() query: HereHotelSyncRequest) {
+  async importHotelsfromHereApi(@Query() query: HereHotelSyncRequest) {
     return this.commandBus.execute&lt;
       IngestHotelsFromHereCommand,
       HotelHereApiResponseModel

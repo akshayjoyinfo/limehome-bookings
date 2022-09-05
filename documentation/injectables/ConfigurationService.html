@@ -113,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/global/config/config.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/global/config/config.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -146,8 +146,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/global/config/config.service.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/global/config/config.service.ts:32</a></div>
                 </td>
             </tr>
 
@@ -215,8 +215,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/global/config/config.service.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/global/config/config.service.ts:36</a></div>
                 </td>
             </tr>
 
@@ -245,6 +245,9 @@ import { PostgresConnectionOptions } from &#x27;typeorm/driver/postgres/Postgres
 import { IConfigService } from &#x27;./config.adapter&#x27;;
 import { SnakeNamingStrategy } from &#x27;../database/snake-naming.startegy&#x27;;
 import { DB } from &#x27;../../enums/database-connection.enum&#x27;;
+import { HotelEntity } from &#x27;../../bookings/entities/hotel.entity&#x27;;
+import { BookingEntity } from &#x27;../../bookings/entities/booking.entity&#x27;;
+import { BookingAllocationEntity } from &#x27;../../bookings/entities/booking-allocation.entity&#x27;;
 
 @Injectable()
 export class ConfigurationService
@@ -270,7 +273,7 @@ export class ConfigurationService
     return {
       type: &#x27;postgres&#x27;,
       url: this.get(&#x27;DB_URL&#x27;),
-      entities: [&#x27;dist/**/*.entity.js&#x27;],
+      entities: [HotelEntity, BookingEntity, BookingAllocationEntity],
       migrationsTableName: &#x27;migrations&#x27;,
       migrations: [&#x27;dist/migrations/*.js&#x27;],
       synchronize: true,

@@ -205,15 +205,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createBookingAllocationsEntityFromCommand(command)</code>
+<code>createBookingAllocationsEntityFromCommand(command: <a href="../classes/CreateBookingCommand.html" target="_self">CreateBookingCommand</a>, bookingEntity: <a href="../entitys/BookingEntity.html" target="_self">BookingEntity</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:97</a></div>
                 </td>
             </tr>
 
@@ -228,12 +228,28 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>command</td>
+                                    <td>
+                                                <code><a href="../classes/CreateBookingCommand.html" target="_self" >CreateBookingCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>bookingEntity</td>
+                                    <td>
+                                                <code><a href="../entitys/BookingEntity.html" target="_self" >BookingEntity</a></code>
+                                    </td>
 
                                     <td>
                                         No
@@ -270,15 +286,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createBookingEntityFromCommand(command)</code>
+<code>createBookingEntityFromCommand(command: <a href="../classes/CreateBookingCommand.html" target="_self">CreateBookingCommand</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:85</a></div>
                 </td>
             </tr>
 
@@ -293,12 +309,16 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>command</td>
+                                    <td>
+                                                <code><a href="../classes/CreateBookingCommand.html" target="_self" >CreateBookingCommand</a></code>
+                                    </td>
 
                                     <td>
                                         No
@@ -383,7 +403,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/BookingResponseModel.html" target="_self" >Promise&lt;BookingResponseModel&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/BookingDetailReponseModel.html" target="_self" >Promise&lt;BookingDetailReponseModel&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -413,8 +433,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:120</a></div>
                 </td>
             </tr>
 
@@ -452,7 +472,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/BookingResponseModel.html" target="_self" >BookingResponseModel</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/BookingDetailReponseModel.html" target="_self" >BookingDetailReponseModel</a></code>
 
                     </div>
                     <div class="io-description">
@@ -482,8 +502,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:69</a></div>
                 </td>
             </tr>
 
@@ -553,9 +573,9 @@ import { HotelEntity } from &#x27;../../entities/hotel.entity&#x27;;
 import { BookingAllocationEntity } from &#x27;../../entities/booking-allocation.entity&#x27;;
 import { BookingEntity } from &#x27;../../entities/booking.entity&#x27;;
 import {
-  BookingDetailModel,
+    BookingDetailReponseModel,
   BookingReferenceDetailModel,
-  BookingResponseModel,
+
 } from &#x27;../../../models/response/booking-response.model&#x27;;
 /**
  * CreateBookingCommandHandler
@@ -574,7 +594,7 @@ export class CreateBookingCommandHandler
     private readonly bookingAllocationRepository: Repository&lt;BookingAllocationEntity&gt;,
   ) {}
 
-  async execute(command: CreateBookingCommand): Promise&lt;BookingResponseModel&gt; {
+  async execute(command: CreateBookingCommand): Promise&lt;BookingDetailReponseModel&gt; {
     var validationResults &#x3D; await validate(command);
 
     if (validationResults.length &gt; 0) {
@@ -589,15 +609,24 @@ export class CreateBookingCommandHandler
     this.transformDatesForBookingRequest(command);
 
     var newBooking &#x3D; this.createBookingEntityFromCommand(command);
-    var bookingAllocations &#x3D;
-      this.createBookingAllocationsEntityFromCommand(command);
 
-    newBooking.allocations &#x3D; bookingAllocations;
-
+    
+    
     await this.bookingRepository.save(newBooking);
+    
+    var bookingAllocations &#x3D;
+      this.createBookingAllocationsEntityFromCommand(command,newBooking);
+      newBooking.allocations &#x3D; bookingAllocations;
+
     await this.bookingAllocationRepository.save(bookingAllocations);
 
-    return this.transformBookingIntoBookingResponseModel(newBooking);
+    var createBookingEntity &#x3D; await this.bookingRepository.findOne({
+        where: [{ id: newBooking.id}]
+    });
+
+    
+    return this.transformBookingIntoBookingResponseModel(createBookingEntity);
+    
   }
 
   transformDatesForBookingRequest(command: CreateBookingCommand) {
@@ -616,7 +645,7 @@ export class CreateBookingCommandHandler
     console.log(command);
   }
 
-  createBookingEntityFromCommand(command): BookingEntity {
+  createBookingEntityFromCommand(command:CreateBookingCommand): BookingEntity {
     return {
       hotelId: command.bookingRequest.hotelId,
       checkInDate: command.bookingRequest.checkInDate,
@@ -629,7 +658,7 @@ export class CreateBookingCommandHandler
   }
 
   createBookingAllocationsEntityFromCommand(
-    command,
+    command:CreateBookingCommand, bookingEntity:BookingEntity
   ): BookingAllocationEntity[] {
     var bookings: BookingAllocationEntity[] &#x3D; [];
 
@@ -643,6 +672,7 @@ export class CreateBookingCommandHandler
         hotelId: command.bookingRequest.hotelId,
         bookingDate: new Date(bookingDate),
         createdAtUtc: new Date(),
+        bookingId: bookingEntity.id,
         createdBy: command.bookingRequest?.guest?.name,
       } as BookingAllocationEntity);
     }
@@ -652,21 +682,23 @@ export class CreateBookingCommandHandler
 
   transformBookingIntoBookingResponseModel(
     bookingEntity: BookingEntity,
-  ): BookingResponseModel {
+  ): BookingDetailReponseModel {
+
+    
+
     return {
-      bookingDetail: {
         checkInDate: bookingEntity.checkInDate,
         checkOutDate: bookingEntity.checkOutDate,
-        hotelId: bookingEntity.hotelId,
+        hotelId: +bookingEntity.hotelId,
         hotelName: bookingEntity?.hotel.name,
         bookingReferences: bookingEntity.allocations.map((alloc) &#x3D;&gt; {
           return {
-            bookingId: alloc?.booking.id,
+            alloctionId: +alloc.id,
+            bookingId: +bookingEntity.id,
             bookingDate: alloc.bookingDate,
           } as BookingReferenceDetailModel;
         }),
-      } as BookingDetailModel,
-    } as BookingResponseModel;
+      } as BookingDetailReponseModel
   }
 }
 </code></pre>
