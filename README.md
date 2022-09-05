@@ -19,6 +19,11 @@
 ## 2.1 API Components Diagram
 ![image](https://user-images.githubusercontent.com/1292985/188495497-0134a4aa-b986-40e9-92e1-d29b16a076c7.png)
 
+## 2.2 NEST JS Modules Dependencies
+
+![image](https://user-images.githubusercontent.com/1292985/188497531-375bb1ad-c92c-4841-b65e-de2ef7ba962f.png)
+
+
 
 
 ## 3. Build & Test
