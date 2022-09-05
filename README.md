@@ -62,4 +62,11 @@ API: https://limehome-bookings.herokuapp.com/docs
 
 API Unit &  E2E Coverage Reports
 
+###  5.1 Unit Tests
+![image](https://user-images.githubusercontent.com/1292985/188380179-4a8281f2-2547-49f4-9e41-efabb26219ad.png)
+
+
+### 5.2 E2E Tests
+![image](https://user-images.githubusercontent.com/1292985/188380814-362e98a1-ac69-46e9-a277-53af2a7a89d4.png)
+
 
