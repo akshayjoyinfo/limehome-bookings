@@ -23,6 +23,11 @@
 
 ![image](https://user-images.githubusercontent.com/1292985/188497531-375bb1ad-c92c-4841-b65e-de2ef7ba962f.png)
 
+## 2.3 Deployed to Heroku
+
+  trigger: when new commits merged to master
+  
+  ![image](https://user-images.githubusercontent.com/1292985/188501829-aa415205-a9b6-4b6b-bfd8-6afc04a43896.png)
 
 
 
