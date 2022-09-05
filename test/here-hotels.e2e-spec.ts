@@ -7,7 +7,7 @@ describe('HereHotelsController (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
-    process.env['DB_URL']='postgres://postgres:Password@2020@localhost:5432/limehomebookingse2e'
+    process.env['DB_URL']='postgres://postgres:Password@2020@localhost:5432/limehomebookings'
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();

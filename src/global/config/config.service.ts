@@ -41,7 +41,7 @@ export class ConfigurationService
       migrationsTableName: 'migrations',
       migrations: ['dist/migrations/*.js'],
       synchronize: true,
-      logging: ['query'], //['query', 'error'],
+      logging: ['error'], //['query', 'error'],
       namingStrategy: new SnakeNamingStrategy(),
       useUTC: true,
     };
