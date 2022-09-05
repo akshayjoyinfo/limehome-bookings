@@ -6,8 +6,19 @@
   - List the bookings in a given hotel
 
 
+## Built With
+- Nest Js
+- TypeScript
+- Postgres + Postgis
+- Compodoc
+- Jest
+
 ## 2. Architecture Diagram
 ![](./screenshots/architecture.png)
+
+## 2.1 API Components Diagram
+![image](https://user-images.githubusercontent.com/1292985/188495497-0134a4aa-b986-40e9-92e1-d29b16a076c7.png)
+
 
 
 ## 3. Build & Test
