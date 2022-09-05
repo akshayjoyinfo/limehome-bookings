@@ -1,0 +1,774 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>limehome-bookings documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">limehome-bookings documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li >CreateBookingCommandHandler</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/bookings/handlers/commands/create-booking-command.handler.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>CreateBookingCommandHandler</p>
+<p>Create Booking for Hotel</p>
+
+            </p>
+
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code>ICommandHandler</code>
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createBookingAllocationsEntityFromCommand" >createBookingAllocationsEntityFromCommand</a>
+                            </li>
+                            <li>
+                                <a href="#createBookingEntityFromCommand" >createBookingEntityFromCommand</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#execute" >execute</a>
+                            </li>
+                            <li>
+                                <a href="#transformBookingIntoBookingResponseModel" >transformBookingIntoBookingResponseModel</a>
+                            </li>
+                            <li>
+                                <a href="#transformDatesForBookingRequest" >transformDatesForBookingRequest</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(bookingRepository: <a href="../entitys/BookingEntity.html" target="_self">Repository&lt;BookingEntity&gt;</a>, bookingAllocationRepository: <a href="../entitys/BookingAllocationEntity.html" target="_self">Repository&lt;BookingAllocationEntity&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>bookingRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/BookingEntity.html" target="_self" >Repository&lt;BookingEntity&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>bookingAllocationRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/BookingAllocationEntity.html" target="_self" >Repository&lt;BookingAllocationEntity&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createBookingAllocationsEntityFromCommand"></a>
+                    <span class="name">
+                        <span ><b>createBookingAllocationsEntityFromCommand</b></span>
+                        <a href="#createBookingAllocationsEntityFromCommand"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createBookingAllocationsEntityFromCommand(command: <a href="../classes/CreateBookingCommand.html" target="_self">CreateBookingCommand</a>, bookingEntity: <a href="../entitys/BookingEntity.html" target="_self">BookingEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>command</td>
+                                    <td>
+                                                <code><a href="../classes/CreateBookingCommand.html" target="_self" >CreateBookingCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>bookingEntity</td>
+                                    <td>
+                                                <code><a href="../entitys/BookingEntity.html" target="_self" >BookingEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/BookingAllocationEntity.html" target="_self" >BookingAllocationEntity[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createBookingEntityFromCommand"></a>
+                    <span class="name">
+                        <span ><b>createBookingEntityFromCommand</b></span>
+                        <a href="#createBookingEntityFromCommand"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createBookingEntityFromCommand(command: <a href="../classes/CreateBookingCommand.html" target="_self">CreateBookingCommand</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>command</td>
+                                    <td>
+                                                <code><a href="../classes/CreateBookingCommand.html" target="_self" >CreateBookingCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/BookingEntity.html" target="_self" >BookingEntity</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="execute"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>execute</b></span>
+                        <a href="#execute"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>execute(command: <a href="../classes/CreateBookingCommand.html" target="_self">CreateBookingCommand</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>command</td>
+                                    <td>
+                                                <code><a href="../classes/CreateBookingCommand.html" target="_self" >CreateBookingCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/BookingDetailReponseModel.html" target="_self" >Promise&lt;BookingDetailReponseModel&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformBookingIntoBookingResponseModel"></a>
+                    <span class="name">
+                        <span ><b>transformBookingIntoBookingResponseModel</b></span>
+                        <a href="#transformBookingIntoBookingResponseModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transformBookingIntoBookingResponseModel(bookingEntity: <a href="../entitys/BookingEntity.html" target="_self">BookingEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>bookingEntity</td>
+                                    <td>
+                                                <code><a href="../entitys/BookingEntity.html" target="_self" >BookingEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/BookingDetailReponseModel.html" target="_self" >BookingDetailReponseModel</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformDatesForBookingRequest"></a>
+                    <span class="name">
+                        <span ><b>transformDatesForBookingRequest</b></span>
+                        <a href="#transformDatesForBookingRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transformDatesForBookingRequest(command: <a href="../classes/CreateBookingCommand.html" target="_self">CreateBookingCommand</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/bookings/handlers/commands/create-booking-command.handler.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>command</td>
+                                    <td>
+                                                <code><a href="../classes/CreateBookingCommand.html" target="_self" >CreateBookingCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BadRequestException, UseFilters } from &#x27;@nestjs/common&#x27;;
+import { CommandHandler, ICommandHandler } from &#x27;@nestjs/cqrs&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { validate } from &#x27;class-validator&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
+import { AppExceptionFilter } from &#x27;../../../utils/filters/app-exception.filter&#x27;;
+import { CreateBookingCommand } from &#x27;../../commands/create-booking.command&#x27;;
+import { IngestHotelsFromHereCommand } from &#x27;../../commands/ingest-hotels-from-here.command&#x27;;
+import { HotelEntity } from &#x27;../../entities/hotel.entity&#x27;;
+import { BookingAllocationEntity } from &#x27;../../entities/booking-allocation.entity&#x27;;
+import { BookingEntity } from &#x27;../../entities/booking.entity&#x27;;
+import {
+    BookingDetailReponseModel,
+  BookingReferenceDetailModel,
+
+} from &#x27;../../../models/response/booking-response.model&#x27;;
+/**
+ * CreateBookingCommandHandler
+ *
+ * Create Booking for Hotel
+ */
+@CommandHandler(CreateBookingCommand)
+@UseFilters(AppExceptionFilter)
+export class CreateBookingCommandHandler
+  implements ICommandHandler&lt;CreateBookingCommand&gt;
+{
+  constructor(
+    @InjectRepository(BookingEntity)
+    private readonly bookingRepository: Repository&lt;BookingEntity&gt;,
+    @InjectRepository(BookingAllocationEntity)
+    private readonly bookingAllocationRepository: Repository&lt;BookingAllocationEntity&gt;,
+  ) {}
+
+  async execute(command: CreateBookingCommand): Promise&lt;BookingDetailReponseModel&gt; {
+    var validationResults &#x3D; await validate(command);
+
+    if (validationResults.length &gt; 0) {
+      // this is business valiation erros for HOTEL-DATE booking combination maximum is 10
+      // by considering SRP validation rules kept in different place ,
+      // might refactor later with more elgant flutent validations
+      // ideally I call specifically for validate object, it needs to pass throuhg some pipelien level before reaching command handler
+      // need to validate, but need to research little bit here
+      throw new BadRequestException(validationResults);
+    }
+
+    this.transformDatesForBookingRequest(command);
+
+    var newBooking &#x3D; this.createBookingEntityFromCommand(command);
+
+    
+    
+    await this.bookingRepository.save(newBooking);
+    
+    var bookingAllocations &#x3D;
+      this.createBookingAllocationsEntityFromCommand(command,newBooking);
+      newBooking.allocations &#x3D; bookingAllocations;
+
+    await this.bookingAllocationRepository.save(bookingAllocations);
+
+    var createBookingEntity &#x3D; await this.bookingRepository.findOne({
+        where: [{ id: newBooking.id}]
+    });
+
+    
+    return this.transformBookingIntoBookingResponseModel(createBookingEntity);
+    
+  }
+
+  transformDatesForBookingRequest(command: CreateBookingCommand) {
+    const timePortion &#x3D; new Date().getTime() % (3600 * 1000 * 24);
+    var checkIn &#x3D; new Date(
+      +command.bookingRequest.checkInDate - timePortion + 14 * 60 * 60 * 1000,
+    );
+
+    var checkOut &#x3D; new Date(
+      +command.bookingRequest.checkOutDate - timePortion + 11 * 60 * 60 * 1000,
+    );
+
+    command.bookingRequest.checkInDate &#x3D; checkIn;
+    command.bookingRequest.checkOutDate &#x3D; checkOut;
+
+    console.log(command);
+  }
+
+  createBookingEntityFromCommand(command:CreateBookingCommand): BookingEntity {
+    return {
+      hotelId: command.bookingRequest.hotelId,
+      checkInDate: command.bookingRequest.checkInDate,
+      checkOutDate: command.bookingRequest.checkOutDate,
+      createdAtUtc: new Date(),
+      createdBy: command.bookingRequest?.guest?.name,
+      guestMail: command.bookingRequest?.guest?.email,
+      guestName: command.bookingRequest?.guest?.name,
+    } as BookingEntity;
+  }
+
+  createBookingAllocationsEntityFromCommand(
+    command:CreateBookingCommand, bookingEntity:BookingEntity
+  ): BookingAllocationEntity[] {
+    var bookings: BookingAllocationEntity[] &#x3D; [];
+
+    for (
+      var bookingDate &#x3D; command.bookingRequest.checkInDate;
+      bookingDate &lt; command.bookingRequest.checkOutDate;
+      bookingDate.setDate(bookingDate.getDate() + 1)
+    ) {
+      console.log(bookingDate);
+      bookings.push({
+        hotelId: command.bookingRequest.hotelId,
+        bookingDate: new Date(bookingDate),
+        createdAtUtc: new Date(),
+        bookingId: bookingEntity.id,
+        createdBy: command.bookingRequest?.guest?.name,
+      } as BookingAllocationEntity);
+    }
+
+    return bookings;
+  }
+
+  transformBookingIntoBookingResponseModel(
+    bookingEntity: BookingEntity,
+  ): BookingDetailReponseModel {
+
+    
+
+    return {
+        checkInDate: bookingEntity.checkInDate,
+        checkOutDate: bookingEntity.checkOutDate,
+        hotelId: +bookingEntity.hotelId,
+        hotelName: bookingEntity?.hotel.name,
+        bookingReferences: bookingEntity.allocations.map((alloc) &#x3D;&gt; {
+          return {
+            alloctionId: +alloc.id,
+            bookingId: +bookingEntity.id,
+            bookingDate: alloc.bookingDate,
+          } as BookingReferenceDetailModel;
+        }),
+      } as BookingDetailReponseModel
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateBookingCommandHandler.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
