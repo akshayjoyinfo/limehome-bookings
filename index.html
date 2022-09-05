@@ -31,53 +31,27 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="limehome-bookings">LimeHome Bookings</h1>
-<h2 id="1-limehome-bookings-api">1. LimeHome Bookings API</h2>
-<ul>
-<li>Get the list of hotels around a specific location</li>
-<li>Create a booking for a given hotel on specific dates for a specific guest</li>
-<li>List the bookings in a given hotel</li>
-</ul>
-<h2 id="2-architecture-diagram">2. Architecture Diagram</h2>
-<p><img src="./screenshots/architecture.png" alt="" class="img-responsive"></p>
-<h2 id="3-build--test">3. Build &amp; Test</h2>
-<ol>
-<li>Clone this repo</li>
-<li>Setup Postgres and along with Extensions</li>
-</ol>
-<div><pre class="line-numbers"><code class="language-none">POSTGRES: 14
-Extensions: 
-
-cube          | 1.5   | data type for multidimensional cubes
-earthdistance | 1.1   | calculate great-circle distances on the surface of the Earth
-postgis       | 3.2.2 | PostGIS geometry and geography spatial types and functions
-</code></pre></div><ol start="3">
-<li><p>Creaate Database <code>limehomebookings</code> , or make sure .env DB_URL should be properly updated</p>
-</li>
-<li><p>Build and install depdendencies</p>
-</li>
-</ol>
-<div><pre class="line-numbers"><code class="language-none">npm install
-</code></pre></div><ol start="5">
-<li>To Build &amp; Run in LOCAL</li>
-</ol>
-<div><pre class="line-numbers"><code class="language-none">npm run build
-
-npm run start:dev</code></pre></div><ol start="5">
-<li>To run tests
-once run the tests there will be coverage &amp; coverage-e2e foldet will be published</li>
-</ol>
-<div><pre class="line-numbers"><code class="language-none">npm run test
-npm run test:e2e
-</code></pre></div><h2 id="4-live-demo--documentation">4. Live Demo / Documentation</h2>
-<p>CompoDoc Documentation: <a href="https://akshayjoyinfo.github.io/limehome-bookings/">https://akshayjoyinfo.github.io/limehome-bookings/</a></p>
-<p>API: <a href="https://limehome-bookings.herokuapp.com/docs">https://limehome-bookings.herokuapp.com/docs</a> </p>
-<h2 id="5-coverage-report">5. Coverage Report</h2>
-<p>API Unit &amp;  E2E Coverage Reports</p>
-<h3 id="51-unit-tests">5.1 Unit Tests</h3>
-<p><img src="https://user-images.githubusercontent.com/1292985/188380179-4a8281f2-2547-49f4-9e41-efabb26219ad.png" alt="image" class="img-responsive"></p>
-<h3 id="52-e2e-tests">5.2 E2E Tests</h3>
-<p><img src="https://user-images.githubusercontent.com/1292985/188380814-362e98a1-ac69-46e9-a277-53af2a7a89d4.png" alt="image" class="img-responsive"></p>
+<p>npm install --force</p>
+<p>heroku pg:psql DATABASE_URL -a limehome-bookings</p>
+<p>extensions installed
+postgis
+cube
+eathdistance</p>
+<p> SELECT geo_location &lt;-&gt; ST_MakePoint(-71.05495, 42.36309) as distance,* FROM hotels 
+    ORDER BY geo_location &lt;-&gt; ST_MakePoint(-71.05495, 42.36309) LIMIT 5;</p>
+<p><a href="http://localhost:3000/api/here-hotels?longitude=-71.05495&amp;latitude=42.36309">http://localhost:3000/api/here-hotels?longitude=-71.05495&amp;latitude=42.36309</a></p>
+<p>{
+  &quot;hotelId&quot;: 1,
+  &quot;checkInDate&quot;: &quot;2022-09-02T15:30:02.833Z&quot;,
+  &quot;checkOutDate&quot;: &quot;2022-09-04T15:30:02.833Z&quot;,
+  &quot;amount&quot;: 10000,
+  &quot;rooms&quot;: 1,
+  &quot;guest&quot;: {
+    &quot;name&quot;: &quot;string&quot;,
+    &quot;email&quot;: &quot;<a href="mailto:&#x73;&#116;&#x72;&#x69;&#x6e;&#103;&#64;&#x73;&#116;&#114;&#105;&#x6e;&#x67;&#46;&#99;&#x6f;&#109;">&#x73;&#116;&#x72;&#x69;&#x6e;&#103;&#64;&#x73;&#116;&#114;&#105;&#x6e;&#x67;&#46;&#99;&#x6f;&#109;</a>&quot;,
+    &quot;phone&quot;: &quot;+917204285639&quot;
+  }
+}</p>
 
 
 
