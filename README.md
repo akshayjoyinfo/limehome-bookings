@@ -13,17 +13,23 @@
 - Compodoc
 - Jest
 
-## 2. Architecture Diagram
+## 2. Diagrams
+
+## 2.1 Architecture Diagram
 ![](./screenshots/architecture.png)
 
-## 2.1 API Components Diagram
+## 2.2 ER Diagram
+
+![image](https://user-images.githubusercontent.com/1292985/189606363-0f41f190-da77-4657-a4ab-e4f11f8229c0.png)
+
+## 2.3 API Components Diagram
 ![image](https://user-images.githubusercontent.com/1292985/188495497-0134a4aa-b986-40e9-92e1-d29b16a076c7.png)
 
-## 2.2 NEST JS Modules Dependencies
+## 2.4 NEST JS Modules Dependencies
 
 ![image](https://user-images.githubusercontent.com/1292985/188497531-375bb1ad-c92c-4841-b65e-de2ef7ba962f.png)
 
-## 2.3 Deployed to Heroku
+## 2.5 Deployed to Heroku
 
   trigger: when new commits merged to master
   
